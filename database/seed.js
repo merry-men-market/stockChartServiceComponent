@@ -4,7 +4,8 @@ const generateData = require('./generateData.js');
 
 const stockData = [];
 for (let i = 0; i < 100; i++) {
-  stockData.push(generateData.generateData(i));
+  // stockData.push(generateData.generateData(i));
+  process.stdout.write(JSON.stringify(generateData.generateData(i)));
 }
 
 const insertStockData = function() {
