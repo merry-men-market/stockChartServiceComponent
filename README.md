@@ -1,39 +1,57 @@
-# Project Name
+# Stock Chart
 
-> Project description
+menintights stock chart component simulates a visual representation of stock market data on an interactive price chart, including:
+  - Stock Price
+  - Trends
+  - Percent Change
+  
+## Installation
 
-## Related Projects
+  To install the latest version:
+  ```sh
+  git clone https://github.com/menintights/stock-chart
+  ```
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+## Getting started
+  
+  After navigating to the Stock-Chart directory, run the following commands:
+  ```sh
+  npm install
+  npm start
+  ```
+  
+  Go to localhost at port 2468 with a path of '/api/{number}', where number is the stock charts id you want to navigate to. Note: that accessible ids currently includes 001-100.
 
-## Table of Contents
+  ```sh
+  localhost:2468/api/001
+  ```
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+## CRUD API
+  
+  The Stock Chart component has the following functions:
+  ### 1. Add a new company - (CREATE)
 
-## Usage
+  ```sh
+  POST - /api/:stockId
+  ```
 
-> Some usage instructions
+  ### 2. Get specific stock by Id - (READ)
 
-## Requirements
+  ```sh
+  GET - /api/:stockId
+  ```
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+  ### 3. Make changes to stock information data - (UPDATE)
+  
+  ```sh
+  PATCH - /api/:stockId
+  ```
 
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
-
+  ### 3. Delete specific stock by id - (DELETE)
+  
+  ```sh
+  PATCH - /api/:stockId
+  ```
+  
+## Bugs & Feedback:
+  - If you notice any bugs or have suggestions, please feel free to make a pull request with the changes. Thank you!
