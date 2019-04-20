@@ -114,27 +114,36 @@ const generateInBetween = (min, max, type) => {
   }
 }
 
-module.exports.generateData = (index) => {
-  var randomIndex = Math.floor(Math.random() * Math.floor(100));
+module.exports.generateData = (index, randomIndex) => {
   return {
     id: index,
     stockId: companyData[randomIndex].ticker,
-    stockInfo: {
-      stockCompany: companyData[randomIndex].company,
-      relatedTags: generateTags(generateInBetween(2, 5, 'interger')),
-      noOfOwners: faker.random.number(),
-      recommendationPercent: generateInBetween(30, 90, 'interger'),
-    },
-    stockData: {
-      day: generateDataPoints(),
-      week: generateDataPoints(),
-      month: generateDataPoints(),
-      threeMonth: generateDataPoints(),
-      year: generateDataPoints(),
-      fiveYear: generateDataPoints()
-    },
+    stockInfo: index,
+    stockData: index,
     averageStock: generateInBetween(90, 200).toFixed(2),
     changePercent: generateInBetween(1, 4).toFixed(2)
+  }
+};
+
+module.exports.stockInfo = (index) => {
+  return {
+    id: index,
+    stockCompany: companyData[randomIndex].company,
+    relatedTags: generateTags(generateInBetween(2, 5, 'interger')),
+    noOfOwners: faker.random.number(),
+    recommendationPercent: generateInBetween(30, 90, 'interger'),
+  }
+};
+
+module.exports.stockData = (index) => {
+  return {
+    id: index,
+    day: generateDataPoints(),
+    week: generateDataPoints(),
+    month: generateDataPoints(),
+    threeMonth: generateDataPoints(),
+    year: generateDataPoints(),
+    fiveYear: generateDataPoints()
   }
 };
 
@@ -156,3 +165,29 @@ const generateTags = (number) => {
   }
   return returnArr;
 }
+
+
+
+// module.exports.generateData = (index) => {
+//   var randomIndex = Math.floor(Math.random() * Math.floor(100));
+//   return {
+//     id: index,
+//     stockId: companyData[randomIndex].ticker,
+//     stockInfo: {
+//       stockCompany: companyData[randomIndex].company,
+//       relatedTags: generateTags(generateInBetween(2, 5, 'interger')),
+//       noOfOwners: faker.random.number(),
+//       recommendationPercent: generateInBetween(30, 90, 'interger'),
+//     },
+//     stockData: {
+//       day: generateDataPoints(),
+//       week: generateDataPoints(),
+//       month: generateDataPoints(),
+//       threeMonth: generateDataPoints(),
+//       year: generateDataPoints(),
+//       fiveYear: generateDataPoints()
+//     },
+//     averageStock: generateInBetween(90, 200).toFixed(2),
+//     changePercent: generateInBetween(1, 4).toFixed(2)
+//   }
+// };
