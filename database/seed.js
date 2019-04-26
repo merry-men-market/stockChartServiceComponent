@@ -148,10 +148,10 @@ function writeTenMillionTimes(writer, encoding, callback) {
       var randomIndex = Math.floor(Math.random() * Math.floor(100));
       var stock = {
         id: i,
-        stockId: companyData[randomIndex].ticker,
+        stockId: companyData[randomIndex].ticker + i,
         averageStock: generateInBetween(90, 200).toFixed(2),
         changePercent: generateInBetween(1, 4).toFixed(2),
-        stockCompany: companyData[randomIndex].company,
+        stockCompany: companyData[randomIndex].company + i,
         relatedTags: generateTags(generateInBetween(2, 5, 'interger')),
         noOfOwners: faker.random.number(),
         recommendationPercent: generateInBetween(30, 90, 'interger'),
@@ -162,7 +162,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
         year: generateDataPoints(),
         fiveYear: generateDataPoints()
       };
-      var stockValues = `${stock.id},${stock.stockId},${stock.averageStock},${stock.changePercent},${stock.stockCompany},${stock.relatedTags.join('|')},${stock.noOfOwners},${stock.recommendationPercent},${stock.day.join('|')},${stock.week.join('|')},${stock.month.join('|')},${stock.threeMonth.join('|')},${stock.year.join('|')},${stock.fiveYear.join('|')}\n`;
+      var stockValues = `${stock.id},${JSON.stringify(stock.stockId)},${stock.averageStock},${stock.changePercent},${JSON.stringify(stock.stockCompany)},${stock.relatedTags.join('|')},${stock.noOfOwners},${stock.recommendationPercent},${stock.day.join('|')},${stock.week.join('|')},${stock.month.join('|')},${stock.threeMonth.join('|')},${stock.year.join('|')},${stock.fiveYear.join('|')}\n`;
       i--;
       if (i === 0) {
         // last time!
@@ -182,7 +182,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
   }
 }
 
-const stream = fs.createWriteStream('data.csv');
+const stream = fs.createWriteStream('finalData.csv');
 writeTenMillionTimes(stream, 'utf8', () => {
   console.log('streamed 10M results');
 });
