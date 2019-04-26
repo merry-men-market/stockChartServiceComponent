@@ -4,7 +4,7 @@ var models = ExpressCassandra.createClient({
     clientOptions: {
         contactPoints: ['127.0.0.1'],
         protocolOptions: { port: 9042 },
-        keyspace: 'stocks',
+        keyspace: 'stocks2',
         queryOptions: {consistency: ExpressCassandra.consistencies.one}
     },
     ormOptions: {
@@ -16,7 +16,7 @@ var models = ExpressCassandra.createClient({
     }
 });
 
-var MyModel = models.loadSchema('Stock', {
+var MyModel = models.loadSchema('Stock2', {
   fields:{
     id : "int",
     stockId : "text",
