@@ -13,7 +13,7 @@ const port = process.env.PORT || 2468;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, '/../public/dist')));
+// app.use(express.static(path.join(__dirname, '/../public/dist')));
 
 app.locals.newrelic = newrelic;
 
@@ -22,9 +22,9 @@ app.listen(port, () => {
 })
 
 
-app.get('/:stockId', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../public/dist/index.html'));
-})
+// app.get('/:stockId', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../public/dist/index.html'));
+// })
 
 app.get('/api/:stockId', postgres.getStock);
 
