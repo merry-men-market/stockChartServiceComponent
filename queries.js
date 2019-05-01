@@ -4,7 +4,7 @@ const password = require('./poweruserpassword.js');
 const pool = new Pool({
   user: 'power_user',
   password: password,
-  host: 'ec2-18-222-213-135.us-east-2.compute.amazonaws.com',
+  host: 'ec2-3-17-153-142.us-east-2.compute.amazonaws.com',
   // host: 'localhost',
   database: 'postgres',
   port: 5432,
