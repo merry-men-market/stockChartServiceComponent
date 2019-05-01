@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/../public/dist/loaderio')));
 // app.use('/:stockId', express.static(__dirname, '/../public/dist'));
 
-app.use('/loaderio-44f53fa39a2b82550401b8b1075cebf1', express.static(path.join(__dirname, '/../public/dist/loaderio')));
+app.use('/loaderio-881200a39f00d92cb43db8195ee79a0f', express.static(path.join(__dirname, '/../public/dist/loaderio')));
 
 app.locals.newrelic = newrelic;
 
