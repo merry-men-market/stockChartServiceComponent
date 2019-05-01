@@ -1,8 +1,10 @@
 const Pool = require('pg').Pool
+const password = require('./poweruserpassword.js');
 
 const pool = new Pool({
-  user: 'Anthony',
-  host: 'localhost',
+  user: 'power_user',
+  password: password,
+  host: 'ec2-18-222-213-135.us-east-2.compute.amazonaws.com',
   database: 'postgres',
   port: 5432,
 })
